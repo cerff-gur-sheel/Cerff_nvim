@@ -1,6 +1,7 @@
 -- Enable line numbers and relative line numbers
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.laststatus = 3
 
 -- Enable mouse support in all modes
 vim.o.mouse = "a"

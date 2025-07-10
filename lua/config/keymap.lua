@@ -23,14 +23,14 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highl
 
 vim.keymap.set(
 	"n",
-	"<leader>th",
+	"<leader>tth",
 	"<C-w>s<C-w><C-j>:terminal<CR>",
 	{ desc = "Abrir terminal horizontal", noremap = true, silent = true }
 )
 
 vim.keymap.set(
 	"n",
-	"<leader>tv",
+	"<leader>ttv",
 	"<C-w>v<C-w><C-l>:terminal<CR>",
 	{ desc = "Abrir terminal vertical", noremap = true, silent = true }
 )

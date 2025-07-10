@@ -9,28 +9,40 @@ return {
 
 		fineline.setup({
 			cmdline = {
-				-- Prompt can influence the completion engine.
-				-- Change it to something that works for you
+				enable_keymaps = true,
+				smart_history = true,
 				prompt = ": ",
-
-				-- Let the user handle the keybindings
-				enable_keymaps = false,
 			},
 			popup = {
+				relative = "editor",
+				position = {
+					row = "20%",
+					col = "50%",
+				},
+				size = {
+					width = "40%",
+				},
+				border = {
+					style = "rounded",
+				},
 				buf_options = {
-					-- Setup a special file type if you need to
-					filetype = "FineCmdlinePrompt",
+					modifiable = true,
+					readonly = true,
+				},
+				win_options = {
+					winblend = 10,
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
 				},
 			},
 			hooks = {
+				before_mount = function(input)
+					-- code
+				end,
+				after_mount = function(input)
+					-- code
+				end,
 				set_keymaps = function(imap, feedkeys)
-					-- Restore default keybindings...
-					-- Except for `<Tab>`, that's what everyone uses to autocomplete
-					imap("<Esc>", fn.close)
-					imap("<C-c>", fn.close)
-
-					imap("<Up>", fn.up_search_history)
-					imap("<Down>", fn.down_search_history)
+					-- code
 				end,
 			},
 		})

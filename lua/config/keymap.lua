@@ -20,12 +20,42 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { desc = "Disable space key", n
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight", noremap = true, silent = true })
 
 -- Terminal keymaps
+
 vim.keymap.set(
 	"n",
-	"<leader>t",
+	"<leader>th",
 	"<C-w>s<C-w><C-j>:terminal<CR>",
-	{ desc = "Open terminal in horizontal split", noremap = true, silent = true }
+	{ desc = "Abrir terminal horizontal", noremap = true, silent = true }
 )
+
+vim.keymap.set(
+	"n",
+	"<leader>tv",
+	"<C-w>v<C-w><C-l>:terminal<CR>",
+	{ desc = "Abrir terminal vertical", noremap = true, silent = true }
+)
+vim.keymap.set("n", "<leader>ttf", function()
+	local buf = vim.api.nvim_create_buf(false, true) -- create scratch buffer
+
+	local width = math.floor(vim.o.columns * 0.8)
+	local height = math.floor(vim.o.lines * 0.8)
+	local row = math.floor((vim.o.lines - height) / 2)
+	local col = math.floor((vim.o.columns - width) / 2)
+
+	local win = vim.api.nvim_open_win(buf, true, {
+		relative = "editor",
+		width = width,
+		height = height,
+		row = row,
+		col = col,
+		style = "minimal",
+		border = "rounded",
+	})
+
+	vim.fn.termopen(os.getenv("SHELL")) -- abre terminal com shell padrão
+	vim.cmd("startinsert")
+end, { desc = "Open terminal in floating window", noremap = true, silent = true })
+
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode", noremap = true, silent = true })
 
 -- Window navigation

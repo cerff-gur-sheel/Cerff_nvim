@@ -35,3 +35,5 @@ require("lazy").setup({
 	require("core.LSP"),
 	require("core.UI"),
 })
+
+require("snippets.gdscript")

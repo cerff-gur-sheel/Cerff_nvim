@@ -1,7 +1,5 @@
 return {
-	"lukas-reineke/indent-blankline.nvim",
-	-- Enable `lukas-reineke/indent-blankline.nvim`
-	-- See `:help ibl`
-	main = "ibl",
-	opts = {},
+	require("core.LSP.tools.indent-blankline"),
+	require("core.LSP.tools.nvim-dap"),
+	require("core.LSP.tools.nvim-lint"),
 }
